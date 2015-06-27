@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				xmlns:tools="http://schemas.android.com/tools"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				tools:context="rocks.testbuild.activities.SplashActivity">
+
+	<ImageView
+		android:id="@+id/img_logo"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerInParent="true"/>
+
+	<TextView
+		android:id="@+id/fullscreen_content"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_below="@+id/img_logo"
+		android:gravity="center"
+		android:keepScreenOn="true"
+		android:text="@string/dummy_content"
+		android:textColor="#33b5e5"
+		android:textSize="50sp"
+		android:textStyle="bold"
+		android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

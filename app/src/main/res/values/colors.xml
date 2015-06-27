@@ -1,0 +1,11 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+
+    <!--global-->
+    <color name="window_background">@android:color/white</color>
+    <color name="primary_color">#FF8000</color>
+    <color name="primary_dark_color">#B25900</color>
+    <color name="accent_color">#008B67</color>
+
+</resources>
