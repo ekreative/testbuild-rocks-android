@@ -17,7 +17,8 @@
         <activity
             android:name=".activities.SplashActivity"
             android:label="@string/title_activity_blank"
-            android:theme="@style/AppTheme.WithoutActionBar">
+            android:theme="@style/AppTheme.WithoutActionBar.Splash"
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,18 +29,22 @@
 
         <activity
             android:name=".activities.LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.WithoutActionBar"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity
             android:name=".activities.ProjectActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.WithoutActionBar">
+            android:theme="@style/AppTheme.WithoutActionBar"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>

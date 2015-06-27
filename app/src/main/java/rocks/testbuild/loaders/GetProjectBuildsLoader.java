@@ -8,8 +8,10 @@ import com.rightutils.rightutils.collections.RightList;
 import com.rightutils.rightutils.loaders.BaseLoader;
 import com.rightutils.rightutils.utils.CacheUtils;
 
+import ch.boye.httpclientandroidlib.Header;
 import ch.boye.httpclientandroidlib.HttpResponse;
 import ch.boye.httpclientandroidlib.HttpStatus;
+import ch.boye.httpclientandroidlib.message.BasicHeader;
 import ch.boye.httpclientandroidlib.util.EntityUtils;
 import rocks.testbuild.R;
 import rocks.testbuild.entities.Build;
@@ -54,12 +56,11 @@ public class GetProjectBuildsLoader extends BaseLoader<Boolean> {
 				return false;
 			}
 			RightRequest request = new RightRequest();
-//			Header header = new BasicHeader("apikey", cache.getUser().getApiKey());
+			Header header = new BasicHeader("X-API-Key", cache.getUser().getApiKey());
 
 			Uri.Builder builder = Uri.parse(String.format(Constants.GET_PROJECT_BUILDS_URL, projectId)).buildUpon();
 
-//			response = request.getHttpResponse(builder.toString(), header);
-			response = request.getHttpResponse(builder.toString());
+			response = request.getHttpResponse(builder.toString(), header);
 			int status = response.getStatusLine().getStatusCode();
 			Log.i(TAG, "status code: " + String.valueOf(status));
 			if (status == HttpStatus.SC_OK) {

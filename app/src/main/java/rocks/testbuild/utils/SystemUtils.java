@@ -1,7 +1,10 @@
 package rocks.testbuild.utils;
 
 import android.content.Context;
+import android.support.design.widget.TextInputLayout;
+import android.text.TextUtils;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.rightutils.rightutils.utils.CacheUtils;
@@ -19,7 +22,7 @@ import rocks.testbuild.entities.ResponseError;
 public class SystemUtils {
 	public static ObjectMapper MAPPER;
 	static {
-		MAPPER = new org.codehaus.jackson.map.ObjectMapper().configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		MAPPER = new ObjectMapper().configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		MAPPER.setDateFormat(Constants.SERVER_DATE_FORMAT);
 	}
 
@@ -38,4 +41,14 @@ public class SystemUtils {
 			Toast.makeText(context, R.string.unknown_error, Toast.LENGTH_LONG).show();
 		}
 	}
+
+	public static boolean isEditTextFilled(Context context, EditText email, TextInputLayout inputLayout, int errorStringRes) {
+		if (TextUtils.isEmpty(email.getText())) {
+			inputLayout.setErrorEnabled(true);
+			inputLayout.setError(context.getString(errorStringRes));
+			return false;
+		}
+		return true;
+	}
+
 }

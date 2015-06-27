@@ -1,5 +1,7 @@
 package rocks.testbuild.entities;
 
+import com.rightutils.rightutils.collections.RightList;
+
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import java.util.Date;
@@ -16,6 +18,8 @@ public class Project {
 	private Date createdAt;
 	@JsonProperty("updated_on")
 	private Date updatedAt;
+	@JsonProperty("custom_fields")
+	private RightList<CustomField> customFields;
 
 	public Project() {
 	}
@@ -66,6 +70,14 @@ public class Project {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public RightList<CustomField> getCustomFields() {
+		return customFields;
+	}
+
+	public void setCustomFields(RightList<CustomField> customFields) {
+		this.customFields = customFields;
 	}
 
 	@Override

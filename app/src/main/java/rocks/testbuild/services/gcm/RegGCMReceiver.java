@@ -167,13 +167,13 @@ public class RegGCMReceiver extends BroadcastReceiver {
 			}
 		});
 
-		if (cache.getUser() != null && !cache.getUser().getToken().isEmpty()) {
+		if (cache.getUser() != null && !cache.getUser().getApiKey().isEmpty()) {
 			HttpResponse response = null;
 			try {
 
 				RightRequest request = new RightRequest();
 
-				Header header = new BasicHeader("apikey", cache.getUser().getToken());
+				Header header = new BasicHeader("apikey", cache.getUser().getApiKey());
 				response = request.putHttpResponse(Constants.REGISTER_DEVICE_URL, header, toJson(redId));
 				int status = response.getStatusLine().getStatusCode();
 				Log.i(TAG, "status code: " + String.valueOf(status));

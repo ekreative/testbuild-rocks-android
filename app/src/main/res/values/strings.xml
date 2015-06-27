@@ -9,4 +9,14 @@
 	<string name="title_activity_blank">BlankActivity</string>
 	<string name="no_internet_connection">No internet connection</string>
 	<string name="unknown_error">Unknown error</string>
+
+	<!-- Login-->
+	<string name="login_btn_submit">let\'s rock!</string>
+	<string name="login_hint_username">Username</string>
+	<string name="login_hint_password">Password</string>
+	<string name="login_txt_hint">Please enter your Redmine username\n and password below</string>
+
+	<!--validation-->
+	<string name="username_empty">Please enter your username</string>
+	<string name="password_empty">Please enter the password</string>
 </resources>

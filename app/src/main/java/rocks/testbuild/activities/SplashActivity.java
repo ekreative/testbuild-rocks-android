@@ -7,7 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.rightutils.rightutils.utils.CacheUtils;
+
 import rocks.testbuild.R;
+import rocks.testbuild.entities.Cache;
+import rocks.testbuild.utils.SystemUtils;
 
 public class SplashActivity extends AppCompatActivity {
 	private int splashDelay = 2000;
@@ -56,9 +60,21 @@ public class SplashActivity extends AppCompatActivity {
 		Handler handler = new Handler();
 		handler.postDelayed(new Runnable() {
 			public void run() {
-				Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-				startActivity(intent);
-				SplashActivity.this.finish();
+				SystemUtils.getCache(SplashActivity.this, new CacheUtils.CallBack<Cache>() {
+					@Override
+					public boolean run(Cache cache) {
+						if (cache != null && cache.getUser() != null) {
+							Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+							startActivity(intent);
+							SplashActivity.this.finish();
+						} else {
+							Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+							startActivity(intent);
+							SplashActivity.this.finish();
+						}
+						return false;
+					}
+				});
 			}
 		}, (long)this.splashDelay);
 	}

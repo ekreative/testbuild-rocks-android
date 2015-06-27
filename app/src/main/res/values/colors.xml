@@ -6,6 +6,12 @@
     <color name="window_background">@android:color/white</color>
     <color name="primary_color">#FF8000</color>
     <color name="primary_dark_color">#B25900</color>
-    <color name="accent_color">#008B67</color>
+    <color name="accent_color">#FF8000</color>
+    <color name="different_btn_color">#008B67</color>
+
+    <color name="btn_default">@color/primary_color</color>
+    <color name="btn_default_pressed">#bbFF8000</color>
+    <color name="btn_disabled">#a3a3a3</color>
+
 
 </resources>
