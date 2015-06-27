@@ -5,12 +5,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rightutils.rightutils.collections.RightList;
+import com.squareup.picasso.Picasso;
 
 import rocks.testbuild.R;
 import rocks.testbuild.entities.Build;
+import rocks.testbuild.utils.CircleTransform;
 
 /**
  * Created by nnet on 6/27/15.
@@ -36,9 +39,10 @@ public class BuildAdapter extends RecyclerView.Adapter<BuildAdapter.ViewHolder> 
 	@Override
 	public void onBindViewHolder(ViewHolder holder, int position) {
 		final Build build = (Build) builds.get(position);
-		holder.name.setText(build.getBuild());
+		holder.name.setText(build.getName());
 //		holder.date.setText(Constants.FEEDBACK_DATE_FORMAT.format(build.get());
-		holder.date.setText(build.getPlist());
+		holder.date.setText(build.getCreatedName());
+		holder.comment.setText(build.getComment());
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -47,6 +51,13 @@ public class BuildAdapter extends RecyclerView.Adapter<BuildAdapter.ViewHolder> 
 				}
 			}
 		});
+		Picasso.with(getContext())
+//				TODO
+				.load(build.getPicture())
+				.transform(new CircleTransform())
+				.placeholder(R.drawable.ph_list) // optional
+				.error(R.drawable.ph_list)         // optional
+				.into(holder.icon);
 	}
 
 	@Override
@@ -67,14 +78,17 @@ public class BuildAdapter extends RecyclerView.Adapter<BuildAdapter.ViewHolder> 
 	}
 
 	public class ViewHolder extends RecyclerView.ViewHolder{
-		TextView name, date;
+		TextView name, date, comment;
 		View itemView;
+		ImageView icon;
 
 		public ViewHolder(View itemView) {
 			super(itemView);
 			this.itemView = itemView;
 			this.name = (TextView) itemView.findViewById(R.id.txt_name);
 			this.date = (TextView) itemView.findViewById(R.id.txt_date);
+			this.comment = (TextView) itemView.findViewById(R.id.txt_comment);
+			this.icon = (ImageView) itemView.findViewById(R.id.img_icon);
 		}
 	}
 }
