@@ -50,7 +50,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 
 	@Override
 	public int getItemCount() {
-		return 0;
+		return projects.size();
 	}
 
 	public Context getContext() {
