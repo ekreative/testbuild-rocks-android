@@ -1,9 +1,12 @@
 package rocks.testbuild.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by nnet on 6/27/15.
  */
-public class CustomField {
+public class CustomField implements Parcelable {
 	private long id;
 	private String name;
 	private String value;
@@ -64,4 +67,33 @@ public class CustomField {
 				", value='" + value + '\'' +
 				'}';
 	}
+
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeLong(this.id);
+		dest.writeString(this.name);
+		dest.writeString(this.value);
+	}
+
+	protected CustomField(Parcel in) {
+		this.id = in.readLong();
+		this.name = in.readString();
+		this.value = in.readString();
+	}
+
+	public static final Creator<CustomField> CREATOR = new Creator<CustomField>() {
+		public CustomField createFromParcel(Parcel source) {
+			return new CustomField(source);
+		}
+
+		public CustomField[] newArray(int size) {
+			return new CustomField[size];
+		}
+	};
 }

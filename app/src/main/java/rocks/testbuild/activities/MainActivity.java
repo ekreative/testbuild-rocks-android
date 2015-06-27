@@ -1,5 +1,6 @@
 package rocks.testbuild.activities;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import rocks.testbuild.loaders.GetProjectsLoader;
 import rocks.testbuild.utils.Constants;
 import rocks.testbuild.utils.SystemUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ProjectAdapter.ActionCallback {
 	private final String TAG = MainActivity.class.getSimpleName();
 	private RecyclerView recyclerView;
 	private RecyclerView.LayoutManager layoutManager;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 			public void onLoadFinished(FragmentActivity fragmentActivity, Fragment fragment, Boolean aBoolean, BaseLoader<Boolean> baseLoader) {
 				if (aBoolean) {
 					projects = loader.getProjects();
-					adapter = new ProjectAdapter(MainActivity.this, projects);
+					adapter = new ProjectAdapter(MainActivity.this, projects, MainActivity.this);
 					recyclerView.setAdapter(adapter);
 				} else {
 					SystemUtils.handleError(MainActivity.this, loader.getError());
@@ -78,5 +79,12 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onSelect(Project project) {
+		Intent intent = new Intent(MainActivity.this, ProjectActivity.class);
+		intent.putExtra(Project.class.getSimpleName(), project);
+		startActivity(intent);
 	}
 }

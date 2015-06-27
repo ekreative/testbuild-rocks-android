@@ -5,11 +5,21 @@
 				android:minHeight="?attr/listPreferredItemHeightLarge">
 
 	<ImageView
+		android:id="@+id/ph_icon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:src="@drawable/ph_list"/>
+
+	<ImageView
 		android:id="@+id/img_icon"
-		android:layout_width="?attr/listPreferredItemHeightLarge"
-		android:layout_height="?attr/listPreferredItemHeightLarge"
-		android:scaleType="centerCrop"
-		android:layout_alignParentLeft="true"/>
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignParentLeft="true"
+		android:layout_alignTop="@+id/ph_icon"
+		android:layout_alignBottom="@+id/ph_icon"
+		android:layout_alignLeft="@+id/ph_icon"
+		android:layout_alignRight="@+id/ph_icon"/>
 
 	<TextView
 		android:id="@+id/txt_name"

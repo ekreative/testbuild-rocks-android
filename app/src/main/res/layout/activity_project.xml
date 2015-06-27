@@ -25,7 +25,8 @@
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
 				android:scaleType="centerCrop"
-				android:src="@drawable/header"/>
+				android:src="@drawable/ph_project"
+				android:id="@+id/img_header"/>
 
 			<android.support.v7.widget.Toolbar
 				android:id="@+id/toolbar"

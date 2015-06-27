@@ -86,8 +86,4 @@ public class GetProjectsLoader extends BaseLoader<Boolean> {
 		return error;
 	}
 
-	private static class DataContent {
-		public RightList<Project> apps;
-	}
-
 }

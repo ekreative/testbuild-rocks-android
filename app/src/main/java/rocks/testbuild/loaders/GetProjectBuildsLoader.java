@@ -67,7 +67,7 @@ public class GetProjectBuildsLoader extends BaseLoader<Boolean> {
 				String result = EntityUtils.toString(response.getEntity());
 				Log.i(TAG, result);
 				DataContent dataContent = SystemUtils.MAPPER.readValue(result, DataContent.class);
-				builds = dataContent.builds;
+				builds = dataContent.apps;
 				return true;
 			} else {
 				error = SystemUtils.MAPPER.readValue(response.getEntity().getContent(), ResponseError.class);
@@ -87,7 +87,7 @@ public class GetProjectBuildsLoader extends BaseLoader<Boolean> {
 	}
 
 	private static class DataContent {
-		public RightList<Build> builds;
+		public RightList<Build> apps;
 	}
 
 }

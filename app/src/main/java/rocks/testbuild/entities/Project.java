@@ -1,5 +1,8 @@
 package rocks.testbuild.entities;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.rightutils.rightutils.collections.RightList;
 
 import org.codehaus.jackson.annotate.JsonProperty;
@@ -9,7 +12,7 @@ import java.util.Date;
 /**
  * Created by nnet on 6/27/15.
  */
-public class Project {
+public class Project implements Parcelable{
 	private long id;
 	private String name;
 	private String identifier;
@@ -121,4 +124,44 @@ public class Project {
 				", updatedAt=" + updatedAt +
 				'}';
 	}
+
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeLong(this.id);
+		dest.writeString(this.name);
+		dest.writeString(this.identifier);
+		dest.writeString(this.description);
+		dest.writeLong(createdAt != null ? createdAt.getTime() : -1);
+		dest.writeLong(updatedAt != null ? updatedAt.getTime() : -1);
+		dest.writeList(this.customFields);
+	}
+
+	protected Project(Parcel in) {
+		this.id = in.readLong();
+		this.name = in.readString();
+		this.identifier = in.readString();
+		this.description = in.readString();
+		long tmpCreatedAt = in.readLong();
+		this.createdAt = tmpCreatedAt == -1 ? null : new Date(tmpCreatedAt);
+		long tmpUpdatedAt = in.readLong();
+		this.updatedAt = tmpUpdatedAt == -1 ? null : new Date(tmpUpdatedAt);
+		this.customFields = (RightList<CustomField>) RightList.asRightList(in.createTypedArray(CustomField.CREATOR));
+
+	}
+
+	public static final Creator<Project> CREATOR = new Creator<Project>() {
+		public Project createFromParcel(Parcel source) {
+			return new Project(source);
+		}
+
+		public Project[] newArray(int size) {
+			return new Project[size];
+		}
+	};
 }

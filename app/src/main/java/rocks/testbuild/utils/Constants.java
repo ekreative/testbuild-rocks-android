@@ -18,7 +18,8 @@ public class Constants {
 	public static final String LOG_IN_URL = BASE_URL + "login";
 
 	public static final String GET_PROJECTS_URL = BASE_API_URL       + "projects.json";
-	public static final String GET_PROJECT_BUILDS_URL = BASE_API_URL + "builds/%d";
+	public static final String GET_PROJECT_SINGLE_BUILD_URL = BASE_API_URL + "builds/%d.json";
+	public static final String GET_PROJECT_BUILDS_URL = BASE_API_URL + "builds/%d/android";
 
 	public final static int LOADER_ID_LOG_IN = 1;
 	public final static int LOADER_ID_GET_PROJECTS = 2;
