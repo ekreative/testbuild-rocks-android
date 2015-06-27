@@ -1,5 +1,5 @@
 <resources>
-	<string name="app_name">TestBuild Rocks</string>
+	<string name="app_name">TestBuild</string>
 
 	<string name="hello_world">Hello world!</string>
 	<string name="action_settings">Log out</string>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 				android:layout_width="match_parent"
-				android:layout_height="?attr/listPreferredItemHeight">
+				android:layout_height="wrap_content"
+				android:minHeight="?attr/listPreferredItemHeight"
+	android:paddingLeft="5dp"
+	android:paddingTop="5dp"
+	>
 
 	<ImageView
 		android:id="@+id/ph_icon"
@@ -39,10 +43,18 @@
 	<TextView
 		android:id="@+id/txt_comment"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
 		android:text="New Text"
 		android:singleLine="true"
 		android:layout_toRightOf="@+id/img_icon"
 		android:layout_below="@+id/txt_date"/>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/btn_disabled"
+		android:layout_below="@+id/ph_icon"
+		android:layout_marginTop
+			="5dp"/>
 
 </RelativeLayout>

@@ -113,7 +113,7 @@ public class ProjectActivity extends AppCompatActivity implements BuildAdapter.A
 
 	public void installLatestBuild(View someView) {
 		if (lastBuild == null) {
-			Snackbar.make(rootLayout, "Try later...", Snackbar.LENGTH_SHORT)
+			Snackbar.make(rootLayout, "Try later...", Snackbar.LENGTH_LONG)
 					.show();
 		} else {
 			// does something very interesting
