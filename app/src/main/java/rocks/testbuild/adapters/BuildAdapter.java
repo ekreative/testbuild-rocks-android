@@ -19,10 +19,12 @@ public class BuildAdapter extends RecyclerView.Adapter<BuildAdapter.ViewHolder> 
 	private static final String TAG = BuildAdapter.class.getSimpleName();
 	private final Context context;
 	private RightList<Build> builds;
+	private final ActionCallback callback;
 
-	public BuildAdapter(Context context, RightList<Build> builds) {
+	public BuildAdapter(Context context, RightList<Build> builds, BuildAdapter.ActionCallback callback) {
 		this.context = context;
 		this.builds = builds;
+		this.callback = callback;
 	}
 
 	@Override
@@ -37,11 +39,23 @@ public class BuildAdapter extends RecyclerView.Adapter<BuildAdapter.ViewHolder> 
 		holder.name.setText(build.getBuild());
 //		holder.date.setText(Constants.FEEDBACK_DATE_FORMAT.format(build.get());
 		holder.date.setText(build.getPlist());
+		holder.itemView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (callback != null) {
+					callback.onDownload(build);
+				}
+			}
+		});
 	}
 
 	@Override
 	public int getItemCount() {
 		return builds.size();
+	}
+
+	public interface ActionCallback {
+		void onDownload(Build build);
 	}
 
 	public Context getContext() {
@@ -54,11 +68,13 @@ public class BuildAdapter extends RecyclerView.Adapter<BuildAdapter.ViewHolder> 
 
 	public class ViewHolder extends RecyclerView.ViewHolder{
 		TextView name, date;
+		View itemView;
 
 		public ViewHolder(View itemView) {
 			super(itemView);
-			name = (TextView) itemView.findViewById(R.id.txt_name);
-			date = (TextView) itemView.findViewById(R.id.txt_date);
+			this.itemView = itemView;
+			this.name = (TextView) itemView.findViewById(R.id.txt_name);
+			this.date = (TextView) itemView.findViewById(R.id.txt_date);
 		}
 	}
 }

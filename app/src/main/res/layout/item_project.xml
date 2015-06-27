@@ -4,37 +4,48 @@
 				android:layout_height="wrap_content"
 				android:minHeight="?attr/listPreferredItemHeightLarge">
 
-	<ImageView
-		android:id="@+id/ph_icon"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:src="@drawable/ph_list"/>
+	<!--<ImageView-->
+		<!--android:id="@+id/ph_icon"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:layout_alignParentLeft="true"-->
+		<!--android:src="@drawable/ph_list"-->
+		<!--android:visibility="gone"/>-->
 
-	<ImageView
-		android:id="@+id/img_icon"
+	<!--<ImageView-->
+		<!--android:id="@+id/img_icon"-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="match_parent"-->
+		<!--android:layout_alignBottom="@+id/ph_icon"-->
+		<!--android:layout_alignLeft="@+id/ph_icon"-->
+		<!--android:layout_alignParentLeft="true"-->
+		<!--android:layout_alignRight="@+id/ph_icon"-->
+		<!--android:layout_alignTop="@+id/ph_icon"/>-->
+
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_alignParentLeft="true"
-		android:layout_alignTop="@+id/ph_icon"
-		android:layout_alignBottom="@+id/ph_icon"
-		android:layout_alignLeft="@+id/ph_icon"
-		android:layout_alignRight="@+id/ph_icon"/>
-
-	<TextView
-		android:id="@+id/txt_name"
-		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="New Text"
-		android:layout_toRightOf="@+id/img_icon"/>
+		android:orientation="vertical"
+		android:layout_centerVertical="true"
+		android:paddingLeft="@dimen/activity_vertical_margin">
 
-	<TextView
-		android:id="@+id/txt_comment"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="New Text"
-		android:singleLine="true"
-		android:layout_toRightOf="@+id/img_icon"
-		android:layout_below="@+id/txt_name"/>
+		<TextView
+			android:id="@+id/txt_name"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@+id/img_icon"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:text="New Text"/>
+
+		<TextView
+			android:id="@+id/txt_created"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/txt_name"
+			android:layout_toRightOf="@+id/img_icon"
+			android:singleLine="true"
+			android:text="New Text"/>
+
+	</LinearLayout>
 
 </RelativeLayout>

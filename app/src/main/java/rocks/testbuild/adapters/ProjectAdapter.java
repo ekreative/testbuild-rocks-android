@@ -9,11 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rightutils.rightutils.collections.RightList;
-import com.squareup.picasso.Picasso;
 
 import rocks.testbuild.R;
 import rocks.testbuild.entities.Project;
-import rocks.testbuild.utils.CircleTransform;
+import rocks.testbuild.utils.Constants;
 
 /**
  * Created by nnet on 6/27/15.
@@ -40,14 +39,14 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 	public void onBindViewHolder(ViewHolder holder, int position) {
 		final Project project = (Project) projects.get(position);
 		holder.name.setText(project.getName());
-		holder.comment.setText(project.getDescription());
-		Picasso.with(getContext())
-//				TODO
-				.load("http://lorempixel.com/57/57/cats/")
-				.transform(new CircleTransform())
-				.placeholder(R.drawable.ph_list) // optional
-				.error(R.drawable.ph_list)         // optional
-				.into(holder.icon);
+		holder.created.setText(Constants.PROJECT_DATE_FORMAT.format(project.getCreatedAt()));
+//		Picasso.with(getContext())
+////				TODO
+//				.load("http://lorempixel.com/57/57/cats/")
+//				.transform(new CircleTransform())
+//				.placeholder(R.drawable.ph_list) // optional
+//				.error(R.drawable.ph_list)         // optional
+//				.into(holder.icon);
 		holder.itemView.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -76,16 +75,16 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 	}
 
 	public class ViewHolder extends RecyclerView.ViewHolder{
-		TextView name, comment;
+		TextView name, created;
 		ImageView icon;
 		View itemView;
 
 		public ViewHolder(View itemView) {
 			super(itemView);
 			this.itemView = itemView;
-			name = (TextView) itemView.findViewById(R.id.txt_name);
-			comment = (TextView) itemView.findViewById(R.id.txt_comment);
-			icon = (ImageView) itemView.findViewById(R.id.img_icon);
+			this.name = (TextView) itemView.findViewById(R.id.txt_name);
+			this.created = (TextView) itemView.findViewById(R.id.txt_created);
+//			this.icon = (ImageView) itemView.findViewById(R.id.img_icon);
 		}
 	}
 }

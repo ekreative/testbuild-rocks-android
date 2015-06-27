@@ -16,7 +16,7 @@
 
         <activity
             android:name=".activities.SplashActivity"
-            android:label="@string/title_activity_blank"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.WithoutActionBar.Splash"
             android:screenOrientation="portrait">
 
