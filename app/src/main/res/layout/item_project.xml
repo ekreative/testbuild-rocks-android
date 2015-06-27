@@ -4,36 +4,38 @@
 				android:layout_height="wrap_content"
 				android:minHeight="?attr/listPreferredItemHeightLarge">
 
-	<!--<ImageView-->
-		<!--android:id="@+id/ph_icon"-->
-		<!--android:layout_width="wrap_content"-->
-		<!--android:layout_height="wrap_content"-->
-		<!--android:layout_alignParentLeft="true"-->
-		<!--android:src="@drawable/ph_list"-->
-		<!--android:visibility="gone"/>-->
+	<ImageView
+		android:id="@+id/ph_icon"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:src="@drawable/ph_list"
+		android:layout_margin="5dp"/>
 
-	<!--<ImageView-->
-		<!--android:id="@+id/img_icon"-->
-		<!--android:layout_width="match_parent"-->
-		<!--android:layout_height="match_parent"-->
-		<!--android:layout_alignBottom="@+id/ph_icon"-->
-		<!--android:layout_alignLeft="@+id/ph_icon"-->
-		<!--android:layout_alignParentLeft="true"-->
-		<!--android:layout_alignRight="@+id/ph_icon"-->
-		<!--android:layout_alignTop="@+id/ph_icon"/>-->
+	<ImageView
+		android:id="@+id/img_icon"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_alignBottom="@+id/ph_icon"
+		android:layout_alignLeft="@+id/ph_icon"
+		android:layout_alignParentLeft="true"
+		android:layout_alignRight="@+id/ph_icon"
+		android:layout_alignTop="@+id/ph_icon"
+		/>
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical"
 		android:layout_centerVertical="true"
-		android:paddingLeft="@dimen/activity_vertical_margin">
+		android:paddingLeft="@dimen/activity_vertical_margin"
+		android:layout_toRightOf="@+id/img_icon"
+		>
 
 		<TextView
 			android:id="@+id/txt_name"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_toRightOf="@+id/img_icon"
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:text="New Text"/>
 
@@ -42,10 +44,15 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_below="@+id/txt_name"
-			android:layout_toRightOf="@+id/img_icon"
 			android:singleLine="true"
 			android:text="New Text"/>
 
 	</LinearLayout>
+
+	<Space
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@color/btn_disabled"
+		android:layout_below="@+id/img_icon"/>
 
 </RelativeLayout>

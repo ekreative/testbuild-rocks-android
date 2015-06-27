@@ -84,7 +84,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ViewHold
 			this.itemView = itemView;
 			this.name = (TextView) itemView.findViewById(R.id.txt_name);
 			this.created = (TextView) itemView.findViewById(R.id.txt_created);
-//			this.icon = (ImageView) itemView.findViewById(R.id.img_icon);
+			this.icon = (ImageView) itemView.findViewById(R.id.img_icon);
 		}
 	}
 }
