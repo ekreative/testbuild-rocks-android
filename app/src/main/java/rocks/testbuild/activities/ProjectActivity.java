@@ -77,8 +77,6 @@ public class ProjectActivity extends AppCompatActivity implements BuildAdapter.A
 			downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
 			registerReceiver(onComplete,
 					new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-//			registerReceiver(onNotificationClick,
-//					new IntentFilter(DownloadManager.ACTION_NOTIFICATION_CLICKED));
 
 			final GetProjectBuildsLoader loader = new GetProjectBuildsLoader(project.getId(), ProjectActivity.this, Constants.LOADER_ID_GET_PROJECT_BUILDS);
 			loader.setLoaderListener(new LoaderListener<Boolean>() {
@@ -187,12 +185,6 @@ public class ProjectActivity extends AppCompatActivity implements BuildAdapter.A
 			startActivity(installationIntent);
 		}
 	};
-
-//	BroadcastReceiver onNotificationClick=new BroadcastReceiver() {
-//		public void onReceive(Context ctxt, Intent intent) {
-//			Toast.makeText(ctxt, "Ummmm...hi!", Toast.LENGTH_SHORT).show();
-//		}
-//	};
 
 	private void fillInProjectData(Build build) {
 		Picasso.with(ProjectActivity.this)
